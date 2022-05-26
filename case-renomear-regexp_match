@@ -1,9 +1,21 @@
 expressão(campo,"(.*(?i)termoatual.*)") THEN "novotermo"
 
-Case completo:
+#####################################################################
+Case modelo 1:
 
 Case
     WHEN REGEXP_MATCH(veiculo,"(.*(?i)fb.*)") THEN "Facebook Ads"
     WHEN REGEXP_MATCH(veiculo,"(.*(?i)gads.*)") THEN "Google Ads"
     Else "verificar"   
 END 
+
+#####################################################################
+Case modelo 2:
+
+CASE
+    WHEN REGEXP_MATCH(forma_de_pagamento,".*credito.*") THEN "Crédito"
+    WHEN REGEXP_MATCH(forma_de_pagamento,".*PIX.*") THEN "Transferência/PIX"
+    WHEN REGEXP_MATCH(forma_de_pagamento,".*debito.*") THEN "Débito"
+    WHEN REGEXP_MATCH(forma_de_pagamento,".*dinheiro.*") THEN "Dinheiro"
+ELSE "verificar"
+END
